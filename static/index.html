@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Avatar Studio - Admin</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body data-theme="light">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo">AI Avatar Studio</a>
+        <div class="header-actions">
+          <button id="themeToggle" class="btn btn-outline">🌙</button>
+          <button id="logoutBtn" class="btn btn-danger hidden">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 2rem 1rem;">
+    <!-- Login Page -->
+    <section id="loginPage" class="fade-in">
+      <div style="max-width: 400px; margin: 0 auto;">
+        <div class="card">
+          <div class="card-content p-8">
+            <h2 class="text-center mb-6" style="font-size: 2rem; font-weight: 600;">Login to Your Account</h2>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <button class="btn btn-primary" onclick="login()">👨‍💼 Admin Login</button>
+            </div>
+
+            <!-- Demo Credentials -->
+            <div style="margin-top: 2rem; padding: 1rem; background-color: var(--bg-light); border-radius: var(--radius);">
+              <h4 style="margin-bottom: 0.5rem;">Demo Credentials:</h4>
+              <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                <strong>Admin:</strong> admin / admin123
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Dashboard -->
+    <section id="adminPage" class="hidden fade-in">
+      <div class="dashboard-container">
+        <aside class="sidebar">
+          <h3>Navigation</h3>
+          <ul class="nav-links">
+            <li><a href="#" class="active" onclick="showSection('generate')">Avatar Generation</a></li>
+            <li><a href="#" onclick="showSection('generated')">Generated Avatars</a></li>
+            <li><a href="#" onclick="showSection('pushed')">Pushed Avatars</a></li>
+          </ul>
+        </aside>
+
+        <div class="main-content">
+          <!-- Generate Avatar Section -->
+          <div id="generate-section" class="section active">
+            <div class="card">
+              <h2>Generate New Avatar</h2>
+              <form id="avatarForm">
+                <div class="form-group">
+                  <label for="audioFile">Upload Audio File</label>
+                  <input type="file" id="audioFile" accept="audio/*" required />
+                </div>
+                <div class="form-group">
+                  <label for="mediaFile">Upload Image or Video</label>
+                  <input type="file" id="mediaFile" accept="image/*,video/*" required />
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="generateBtn">
+                  🚀 Generate Avatar
+                </button>
+              </form>
+              <div id="generationStatus" class="hidden" style="margin-top: 1rem; padding: 1rem; border-radius: var(--radius); background-color: var(--bg-light);">
+                <div id="loadingSpinner" class="spinner"></div>
+                <p id="statusMessage">Generating avatar...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generated Avatars Section -->
+          <div id="generated-section" class="section hidden">
+            <div class="card">
+              <h2>Generated Avatars</h2>
+              <div id="generatedAvatars" class="video-grid">
+                <!-- Generated avatars will be loaded here dynamically -->
+              </div>
+              <div id="noGeneratedAvatars" class="text-center" style="padding: 2rem; color: var(--text-secondary);">
+                <p>No avatars generated yet. Create your first avatar!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pushed Avatars Section -->
+          <div id="pushed-section" class="section hidden">
+            <div class="card">
+              <h2>Pushed Avatars</h2>
+              <div id="pushedAvatars" class="video-grid">
+                <!-- Pushed avatars will be loaded here dynamically -->
+              </div>
+              <div id="noPushedAvatars" class="text-center" style="padding: 2rem; color: var(--text-secondary);">
+                <p>No avatars pushed yet. Push some avatars from the Generated section!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AI Avatar Studio | Powered by Modern HTML5 & CSS</p>
+    </div>
+  </footer>
+
+  <script src="static/script.js"></script>
+</body>
+</html>

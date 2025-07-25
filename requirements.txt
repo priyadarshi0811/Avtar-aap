@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+aiofiles
+
+#ditto
+numpy==2.0.1
+imageio-ffmpeg
+filetype
